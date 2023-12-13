@@ -54,3 +54,7 @@
 .react-datepicker-wrapper {
     width: 100% !important;
 }
+
+.bg-card {
+    background: linear-gradient(127deg, #292929 1.93%, #1A1A1A 47.24%);
+}

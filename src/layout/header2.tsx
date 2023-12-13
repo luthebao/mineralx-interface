@@ -101,7 +101,7 @@ function Header() {
 
     return (
         <div>
-            <nav className="relative px-4 py-4 flex justify-between items-center bg-black">
+            <nav className="relative px-4 py-4 flex justify-between items-center bg-[#0F0F0F]">
                 <a className="text-3xl font-bold leading-none" onClick={() => { goTo("/swap") }}>
                     <img {...PROJECT_LOGO} />
                 </a>
