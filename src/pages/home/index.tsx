@@ -1,3 +1,4 @@
+import Typography from "@material-ui/core/Typography";
 import React from "react";
 
 const HomePage = () => {
@@ -6,7 +7,12 @@ const HomePage = () => {
       <div className="flex justify-between items-center flex-col w-[100vw] h-[100vh] pt-[50px] pb-[35px]">
         <img src="/images/logo.png" alt="logo" className="cursor-pointer" />
         <div className="flex justify-center items-center flex-col gap-[24px]">
-            
+          <Typography className="text-[40px]">Decentralized, simple and transparent protocol</Typography>
+          <Typography>
+            Enabling capital-efficient and secure cross-chain transfer of value
+            through highly solvent and omnichain synthetic assets, rendering
+            bridges obsolete.
+          </Typography>
         </div>
         <div className="flex justify-center items-center w-full gap-[18px]">
           <img

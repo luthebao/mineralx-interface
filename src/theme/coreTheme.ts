@@ -1,4 +1,5 @@
 import { ThemeOptions } from "@material-ui/core";
+import Montserrat from '../../public/fonts/Montserrat/Montserrat-Medium.ttf'
 
 const coreTheme: ThemeOptions = {
     shape: {
@@ -6,7 +7,7 @@ const coreTheme: ThemeOptions = {
     },
     typography: {
         fontFamily: [
-            '"Atyp Text"',
+            'Montserrat',
             'sans-serif'
         ].join(","),
         h1: {
@@ -31,10 +32,10 @@ const coreTheme: ThemeOptions = {
         },
         h3: {
             // yearn title text YEARN
-            fontFamily: [
-                '"Ubuntu"',
-                'sans-serif'
-            ].join(","),
+            // fontFamily: [
+            //     '"Ubuntu"',
+            //     'sans-serif'
+            // ].join(","),
             fontSize: "1.5rem",
             fontWeight: 700,
             lineHeight: 1.167,
