@@ -102,8 +102,8 @@ function Header() {
     return (
         <div>
             <nav className="relative px-4 py-4 flex justify-between items-center bg-[#0F0F0F]">
-                <a className="text-3xl font-bold leading-none" onClick={() => { goTo("/swap") }}>
-                    <img {...PROJECT_LOGO} />
+                <a className="text-3xl font-bold leading-none" onClick={() => { goTo("/") }}>
+                    <img src="/images/logo.png" alt="logo" className="cursor-pointer" />
                 </a>
                 <div className="lg:hidden">
                     <button className="navbar-burger flex items-center text-color-text-menu-selected text-3xl p-3" onClick={() => {
@@ -130,7 +130,7 @@ function Header() {
                 </ul>
 
                 <div className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 transition duration-200">
-                    <ConnectButton accountStatus="address" chainStatus="name" />
+                    <ConnectButton accountStatus="address" chainStatus="name"/>
                 </div>
             </nav>
             <div className={`navbar-menu relative z-50 ${menuOpen ? "!block" : "hidden"}`}>
@@ -138,7 +138,7 @@ function Header() {
                 <nav className={`fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-black overflow-y-auto ${menuOpen ? "animate-open-menu" : "animate-close-menu"}`}>
                     <div className="flex items-center mb-8">
                         <a className="mr-auto text-3xl font-bold leading-none">
-                            <img {...PROJECT_LOGO} />
+                            <img src="/images/logo.png" alt="logo" className="cursor-pointer" />
                         </a>
                         <button className="navbar-close text-color-text-menu-selected text-3xl" onClick={() => setMenuOpen(false)}>
                             <MdOutlineClose />

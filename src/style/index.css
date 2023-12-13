@@ -58,3 +58,9 @@
 .bg-card {
     background: linear-gradient(127deg, #292929 1.93%, #1A1A1A 47.24%);
 }
+
+button[data-testid="rk-connect-button"] {
+    background: linear-gradient(180deg, #FFF 16.33%, #7C7C7C 93.3%) !important;
+    padding: 9px 16px !important;
+    border-radius: 45px !important;
+}
