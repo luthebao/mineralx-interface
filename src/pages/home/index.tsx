@@ -20,7 +20,7 @@ const HomePage = () => {
           <ButtonPrimary
             variant="contained"
             size="large"
-            onClick={() => navigate("/swap")}
+            onClick={() => navigate("/transfer")}
           >
             <span className="text-[20px] font-semibold text-center text-[#101010]">
               Launch App

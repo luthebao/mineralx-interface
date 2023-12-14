@@ -22,30 +22,48 @@ interface MenuItem {
 }
 
 const pages: MenuItem[] = [
-    // {
-    //     title: "Home",
-    //     id: "home",
-    //     link: "https://zkline.finance/",
-    //     other: []
-    // },
     {
-        title: "Trade",
-        id: "trade",
-        link: "swap",
-        other: ["swap", "liquidity", "pair"],
-        childrens: [
-            {
-                title: "Swap",
-                id: "swap",
-                link: "swap",
-            },
-            {
-                title: "Liquidity",
-                id: "liquidity",
-                link: "liquidity",
-            },
-        ]
+        title: "Home",
+        id: "home",
+        link: "/",
+        other: []
     },
+    {
+        title: "Transfer",
+        id: "transfer",
+        link: "/transfer",
+        other: []
+    },
+    {
+        title: "Pool",
+        id: "pool",
+        link: "/pool",
+        other: []
+    },
+    {
+        title: "Stake",
+        id: "stake",
+        link: "/stake",
+        other: []
+    },
+    // {
+    //     title: "Trade",
+    //     id: "trade",
+    //     link: "swap",
+    //     other: ["swap", "liquidity", "pair"],
+    //     childrens: [
+    //         {
+    //             title: "Swap",
+    //             id: "swap",
+    //             link: "swap",
+    //         },
+    //         {
+    //             title: "Liquidity",
+    //             id: "liquidity",
+    //             link: "liquidity",
+    //         },
+    //     ]
+    // },
     // {
     //     title: "Launchpad",
     //     id: "launchpad",
@@ -64,19 +82,19 @@ const pages: MenuItem[] = [
     //         },
     //     ]
     // },
-    {
-        title: "Earn",
-        id: "earn",
-        link: "earn",
-        other: ["earn", "earn", "earn"],
-        childrens: [
-            {
-                title: "Coming soon",
-                id: "earn1",
-                link: "swap",
-            },
-        ]
-    },
+    // {
+    //     title: "Earn",
+    //     id: "earn",
+    //     link: "earn",
+    //     other: ["earn", "earn", "earn"],
+    //     childrens: [
+    //         {
+    //             title: "Coming soon",
+    //             id: "earn1",
+    //             link: "swap",
+    //         },
+    //     ]
+    // },
     // {
     //     title: "Bridge",
     //     id: "bridge",
@@ -129,7 +147,7 @@ function Header() {
                     }
                 </ul>
 
-                <div className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 transition duration-200">
+                <div className="hidden lg:inline-block py-2 px-6 transition duration-200">
                     <ConnectButton accountStatus="address" chainStatus="name"/>
                 </div>
             </nav>
@@ -149,7 +167,7 @@ function Header() {
                             {
                                 pages.map((val) => (
                                     <li key={val.link} className={` flex text-base mb-3 ${val.other.some(x => location.pathname.includes(x)) ? "text-color-text-menu-selected" : "text-color-text-menu hover:text-color-text-menu-hover"}`}>
-                                        {val.other.some(x => location.pathname.includes(x)) && val.icon}
+                                        {/* {val.other.some(x => location.pathname.includes(x)) && val.icon} */}
                                         {
                                             val.childrens ?
                                                 <DropdownContainer goTo={goTo} val={val} dropdown={dropdown} setDropdown={setDropdown} />
