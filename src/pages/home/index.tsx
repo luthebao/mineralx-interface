@@ -5,8 +5,22 @@ import { useNavigate } from "react-router-dom";
 const HomePage = () => {
   const navigate = useNavigate();
   return (
-    <div className="!absolute !min-h-[100vh] w-full bg-[url(/images/home-bg.png?v=006)] bg-cover bg-center bg-no-repeat bg-black">
-      <div className="flex justify-between items-center flex-col w-[100vw] h-[100vh] pt-[50px] pb-[35px]">
+    <div className="!relative !min-h-[100vh] w-full flex flex-col items-center justify-center">
+      <video
+        muted
+        loop
+        autoPlay
+        id="background"
+        preload="auto"
+        playsInline
+        poster="/images/home-bg.png"
+      >
+        <source
+          src="/videos/video-bg.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div className="absolute left-0 top-0 flex justify-between items-center flex-col w-[100vw] h-[100vh] pt-[50px] pb-[35px]">
         <img src="/images/logo.png" alt="logo" className="cursor-pointer" />
         <div className="flex justify-center items-center flex-col gap-[24px] w-[60%] min-w-[350px]">
           <p className="text-[40px] font-bold text-center">

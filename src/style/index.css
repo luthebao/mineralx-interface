@@ -64,3 +64,11 @@ button[data-testid="rk-connect-button"] {
     padding: 9px 16px !important;
     border-radius: 45px !important;
 }
+
+#background {
+    z-index: -1;
+    place-self: stretch;
+    object-fit: contain;
+    background: #000;
+    height: 100vh;
+}
