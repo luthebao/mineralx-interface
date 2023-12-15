@@ -16,11 +16,14 @@ import {
     trustWallet,
     walletConnectWallet,
 } from '@rainbow-me/rainbowkit/wallets';
-import { baseGoerli, goerli } from 'viem/chains';
+import { baseGoerli, goerli, lineaTestnet, optimismGoerli, polygonZkEvmTestnet } from 'viem/chains';
 
 const CHAINS_lIST = [
     goerli,
     baseGoerli,
+    lineaTestnet,
+    polygonZkEvmTestnet,
+    optimismGoerli
 ]
 
 const mainChain = CHAINS_lIST[0]
@@ -32,7 +35,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     ]
 )
 
-const projectId = "56f75e7385f455d146e3aa2c7f751aca"
+const projectId = "2356be9501b2790f7abd1e4407129a9d"
 
 const connectors = connectorsForWallets([
     {
@@ -54,7 +57,7 @@ const connectors = connectorsForWallets([
                 chains,
                 version: "2"
             }),
-            coinbaseWallet({ appName: "zkLine", chains }),
+            coinbaseWallet({ appName: "MineralX", chains }),
         ],
     },
     {
