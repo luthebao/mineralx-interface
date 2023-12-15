@@ -95,8 +95,10 @@ const GlobalStore = {
             state.toChain = null
         }
         state.toAmount = "0"
+        
         state.swapstate = SWAPSTATE.INPUT
     },
+
     setToChain(value: Chain | null) {
         state.toChain = value
         state.toToken = null
@@ -106,6 +108,7 @@ const GlobalStore = {
         state.toAmount = "0"
         state.swapstate = SWAPSTATE.INPUT
     },
+
     setSwapInput() {
         const MID_Chain = state.currentChain
         state.currentChain = state.toChain
@@ -126,6 +129,7 @@ const GlobalStore = {
         state.toAmount = "0"
         state.swapstate = SWAPSTATE.INPUT
     },
+
     setToToken(value: Token | null) {
         state.toToken = value
         if (value && state.currentChain?.id === state.toChain?.id && value.symbol === state.fromToken?.symbol) {
@@ -145,6 +149,7 @@ const GlobalStore = {
         state.toAmount = "0"
         state.swapstate = SWAPSTATE.QUOTE
     },
+
     setToAmount(value: string) {
         state.toAmount = value as Ether
         state.swapstate = SWAPSTATE.SUBMIT
@@ -157,10 +162,12 @@ const GlobalStore = {
             state.txQueue = []
         }
     },
+
     setTxQueue(value: Transaction[]) {
         state.txQueue = value
         state.openQueue = true
     },
+
     updateTxQueue(id: number, status?: TXHstatus, hash?: string, name?: string) {
         state.openQueue = true
         const txIndex = state.txQueue.findIndex(val => val.id === id)
