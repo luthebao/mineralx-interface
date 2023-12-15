@@ -4,7 +4,7 @@ import { PROJECT_LOGO } from "../configs/projects";
 
 export default function Layout() {
     return (
-        <div className="!absolute !min-h-[100vh] w-full bg-[url(/images/swap-bg.png?v=006)] bg-cover bg-bottom bg-no-repeat bg-black">
+        <div className="!absolute !min-h-[100vh] w-full bg-[url(/images/detail-bg.png?v=006)] bg-contain bg-bottom bg-no-repeat bg-[#0F0F0F]">
             <Header />
             <main>
                 <Outlet />

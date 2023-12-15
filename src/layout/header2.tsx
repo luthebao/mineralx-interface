@@ -22,30 +22,48 @@ interface MenuItem {
 }
 
 const pages: MenuItem[] = [
-    // {
-    //     title: "Home",
-    //     id: "home",
-    //     link: "https://zkline.finance/",
-    //     other: []
-    // },
     {
-        title: "Trade",
-        id: "trade",
-        link: "swap",
-        other: ["swap", "liquidity", "pair"],
-        childrens: [
-            {
-                title: "Swap",
-                id: "swap",
-                link: "swap",
-            },
-            {
-                title: "Liquidity",
-                id: "liquidity",
-                link: "liquidity",
-            },
-        ]
+        title: "Home",
+        id: "home",
+        link: "/",
+        other: []
     },
+    {
+        title: "Transfer",
+        id: "transfer",
+        link: "/transfer",
+        other: []
+    },
+    {
+        title: "Pool",
+        id: "pool",
+        link: "/pool",
+        other: []
+    },
+    {
+        title: "Stake",
+        id: "stake",
+        link: "/stake",
+        other: []
+    },
+    // {
+    //     title: "Trade",
+    //     id: "trade",
+    //     link: "swap",
+    //     other: ["swap", "liquidity", "pair"],
+    //     childrens: [
+    //         {
+    //             title: "Swap",
+    //             id: "swap",
+    //             link: "swap",
+    //         },
+    //         {
+    //             title: "Liquidity",
+    //             id: "liquidity",
+    //             link: "liquidity",
+    //         },
+    //     ]
+    // },
     // {
     //     title: "Launchpad",
     //     id: "launchpad",
@@ -64,19 +82,19 @@ const pages: MenuItem[] = [
     //         },
     //     ]
     // },
-    {
-        title: "Earn",
-        id: "earn",
-        link: "earn",
-        other: ["earn", "earn", "earn"],
-        childrens: [
-            {
-                title: "Coming soon",
-                id: "earn1",
-                link: "swap",
-            },
-        ]
-    },
+    // {
+    //     title: "Earn",
+    //     id: "earn",
+    //     link: "earn",
+    //     other: ["earn", "earn", "earn"],
+    //     childrens: [
+    //         {
+    //             title: "Coming soon",
+    //             id: "earn1",
+    //             link: "swap",
+    //         },
+    //     ]
+    // },
     // {
     //     title: "Bridge",
     //     id: "bridge",
@@ -101,9 +119,9 @@ function Header() {
 
     return (
         <div>
-            <nav className="relative px-4 py-4 flex justify-between items-center bg-black">
-                <a className="text-3xl font-bold leading-none" onClick={() => { goTo("/swap") }}>
-                    <img {...PROJECT_LOGO} />
+            <nav className="relative px-4 py-4 flex justify-between items-center bg-[#0F0F0F]">
+                <a className="text-3xl font-bold leading-none" onClick={() => { goTo("/") }}>
+                    <img src="/images/logo.png" alt="logo" className="cursor-pointer" />
                 </a>
                 <div className="lg:hidden">
                     <button className="navbar-burger flex items-center text-color-text-menu-selected text-3xl p-3" onClick={() => {
@@ -129,8 +147,8 @@ function Header() {
                     }
                 </ul>
 
-                <div className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 transition duration-200">
-                    <ConnectButton accountStatus="address" chainStatus="name" />
+                <div className="hidden lg:inline-block py-2 px-6 transition duration-200">
+                    <ConnectButton accountStatus="address" chainStatus="name"/>
                 </div>
             </nav>
             <div className={`navbar-menu relative z-50 ${menuOpen ? "!block" : "hidden"}`}>
@@ -138,7 +156,7 @@ function Header() {
                 <nav className={`fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-black overflow-y-auto ${menuOpen ? "animate-open-menu" : "animate-close-menu"}`}>
                     <div className="flex items-center mb-8">
                         <a className="mr-auto text-3xl font-bold leading-none">
-                            <img {...PROJECT_LOGO} />
+                            <img src="/images/logo.png" alt="logo" className="cursor-pointer" />
                         </a>
                         <button className="navbar-close text-color-text-menu-selected text-3xl" onClick={() => setMenuOpen(false)}>
                             <MdOutlineClose />
@@ -149,7 +167,7 @@ function Header() {
                             {
                                 pages.map((val) => (
                                     <li key={val.link} className={` flex text-base mb-3 ${val.other.some(x => location.pathname.includes(x)) ? "text-color-text-menu-selected" : "text-color-text-menu hover:text-color-text-menu-hover"}`}>
-                                        {val.other.some(x => location.pathname.includes(x)) && val.icon}
+                                        {/* {val.other.some(x => location.pathname.includes(x)) && val.icon} */}
                                         {
                                             val.childrens ?
                                                 <DropdownContainer goTo={goTo} val={val} dropdown={dropdown} setDropdown={setDropdown} />
