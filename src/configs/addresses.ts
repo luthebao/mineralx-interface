@@ -51,7 +51,7 @@ export const DEXB: POOL = {
         WETH: "0x4200000000000000000000000000000000000006",
     },
     [lineaTestnet.id]: {
-        iconUrl: "/chains/base.svg",
+        iconUrl: "/chains/linea.svg",
         l0chainid: 10157,
         chainid: lineaTestnet.id,
         FeeCollector: '0x6dDa5B2Cb04eA1d362dF1b45330B41c2F2145701',
@@ -65,7 +65,7 @@ export const DEXB: POOL = {
         WETH: "0x2C1b868d6596a18e32E61B901E4060C872647b6C",
     },
     [polygonZkEvmTestnet.id]: {
-        iconUrl: "/chains/base.svg",
+        iconUrl: "/chains/zkevm.png",
         l0chainid: 10158,
         chainid: polygonZkEvmTestnet.id,
         FeeCollector: '0x6dDa5B2Cb04eA1d362dF1b45330B41c2F2145701',
@@ -79,7 +79,7 @@ export const DEXB: POOL = {
         WETH: "0x2ad78787CCaf7FA8FAe8953FD78ab9163f81DcC8",
     },
     [optimismGoerli.id]: {
-        iconUrl: "/chains/base.svg",
+        iconUrl: "/chains/op.png",
         l0chainid: 10132,
         chainid: optimismGoerli.id,
         FeeCollector: '0x6dDa5B2Cb04eA1d362dF1b45330B41c2F2145701',

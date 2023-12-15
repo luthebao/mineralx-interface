@@ -37,7 +37,7 @@ function SwapCore() {
     const { signTypedDataAsync } = useSignTypedData({})
     const account = useAccount()
 
-    useEffect(() =>  {
+    useEffect(() => {
         setLoading(false)
 
         return () => {
@@ -173,12 +173,13 @@ function SwapCore() {
                 const sendFromAmount0 = parseUnits(globalstore.fromAmount, globalstore.fromToken.decimals)
                 let allowance0: bigint = 0n
 
-                if ((sendFromAmount0 > parseEther("0.1") && globalstore.fromToken.symbol.includes("ETH")) || (parseUnits(globalstore.toAmount, globalstore.toToken.decimals) > parseEther("0.2") && globalstore.toToken.symbol.includes("ETH"))) {
-                    GlobalStore.setFromAmount("0")
-                    throw {
-                        shortMessage: "Amount of swap: maximum 0.1 ETH (from), 0.2 ETH (to)"
-                    }
-                }
+                // if ((sendFromAmount0 > parseEther("0.1") && globalstore.fromToken.symbol.includes("ETH")) || (parseUnits(globalstore.toAmount, globalstore.toToken.decimals) > parseEther("0.2") && globalstore.toToken.symbol.includes("ETH"))) {
+                //     GlobalStore.setFromAmount("0")
+                //     throw {
+                //         shortMessage: "Amount of swap: maximum 0.1 ETH (from), 0.2 ETH (to)"
+                //     }
+                // }
+
                 if (globalstore.fromToken.address !== NATIVE_TOKEN) {
                     while (true) {
                         allowance0 = await wagmiCore.readContract({
@@ -230,7 +231,7 @@ function SwapCore() {
                 GlobalStore.updateTxQueue(1, TXHstatus.PENDING)
                 const signature = await signTypedDataAsync({
                     domain: {
-                        name: "DEXB Swap",
+                        name: "MineralX.tech Swap",
                         version: "0.0.1",
                         chainId: globalstore.currentChain.id,
                         verifyingContract: DEXB[globalstore.currentChain.id].DEXBAggregatorUniswap,
@@ -250,7 +251,7 @@ function SwapCore() {
                         lwsPoolId: 1,
                         hgsPoolId: 1,
                         dstToken: globalstore.toToken.address,
-                        minHgsAmount: globalstore.fromToken.address !== NATIVE_TOKEN ? 0n : globalstore.quote.minHgsAmount * 80n / 100n,
+                        minHgsAmount: globalstore.fromToken.address !== NATIVE_TOKEN ? 0n : globalstore.quote.minHgsAmount * 10n / 100n,
                     },
                 });
 
@@ -265,7 +266,7 @@ function SwapCore() {
                     dstToken: globalstore.toToken.address as Address,
                     dstChain: DEXB[globalstore.toChain.id].l0chainid,
                     dstAggregatorAddress: DEXB[globalstore.toChain.id].DEXBAggregatorUniswap,
-                    minHgsAmount: globalstore.fromToken.address !== NATIVE_TOKEN ? 0n : globalstore.quote.minHgsAmount * 80n / 100n,
+                    minHgsAmount: globalstore.fromToken.address !== NATIVE_TOKEN ? 0n : globalstore.quote.minHgsAmount * 10n / 100n,
                     signature: signature,
                 }
 
