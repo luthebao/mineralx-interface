@@ -293,7 +293,7 @@ function SwapCore() {
 
                 let gasPrice = await wagmiCore.getPublicClient().getGasPrice()
 
-                gasPrice = gasPrice < 500000n ? 500000n : gasPrice
+                gasPrice = gasPrice < 500000n ? 500000n : gasPrice > 30000000n ? 30000000n : gasPrice
 
                 console.log(gasPrice, gas2, formatUnits((gas2 + gas2) * gasPrice * 100n, 18))
 
