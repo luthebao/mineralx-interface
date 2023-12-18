@@ -95,8 +95,6 @@ const GlobalStore = {
             state.toChain = null
         }
         state.toAmount = "0"
-        
-        state.swapstate = SWAPSTATE.INPUT
     },
 
     setToChain(value: Chain | null) {
@@ -106,7 +104,6 @@ const GlobalStore = {
             state.currentChain = null
         }
         state.toAmount = "0"
-        state.swapstate = SWAPSTATE.INPUT
     },
 
     setSwapInput() {
@@ -117,8 +114,6 @@ const GlobalStore = {
         const MID_Token = state.fromToken
         state.fromToken = state.toToken
         state.toToken = MID_Token
-
-        state.swapstate = SWAPSTATE.INPUT
     },
 
     setFromToken(value: Token | null) {
@@ -127,7 +122,6 @@ const GlobalStore = {
             state.toToken = null
         }
         state.toAmount = "0"
-        state.swapstate = SWAPSTATE.INPUT
     },
 
     setToToken(value: Token | null) {
@@ -136,7 +130,6 @@ const GlobalStore = {
             state.fromToken = null
         }
         state.toAmount = "0"
-        state.swapstate = SWAPSTATE.INPUT
     },
 
     setQuote(value: Quote | null) {
@@ -147,12 +140,10 @@ const GlobalStore = {
         state.fromAmount = value as Ether
         console.log(value)
         state.toAmount = "0"
-        state.swapstate = SWAPSTATE.QUOTE
     },
 
     setToAmount(value: string) {
         state.toAmount = value as Ether
-        state.swapstate = SWAPSTATE.SUBMIT
     },
 
     setOpenQueue(value: boolean) {

@@ -140,7 +140,6 @@ function SwapCore() {
 
     const onSwap = async () => {
         setLoading(true)
-
         if (globalstore.currentChain === null || globalstore.toChain === null || globalstore.fromToken === null || globalstore.toToken === null || Number(globalstore.fromAmount) <= 0) {
             toast("Invalid Input")
         }
@@ -314,6 +313,8 @@ function SwapCore() {
                 })
 
                 if (wait2.status === "success") {
+                    GlobalStore.setFromToken(null)
+                    GlobalStore.setToToken(null)
                     GlobalStore.updateTxQueue(2, TXHstatus.DONE, wait2.transactionHash)
                 } else {
                     GlobalStore.updateTxQueue(2, TXHstatus.REJECTED)
@@ -333,8 +334,6 @@ function SwapCore() {
                     toast("Unknown error")
                 }
             }
-            GlobalStore.setFromToken(null)
-            GlobalStore.setToToken(null)
             GlobalStore.setToAmount("0")
         }
         setLoading(false)
@@ -402,7 +401,7 @@ function SwapCore() {
                             loading ? <FaSpinner className={`text-[19px] animate-spin`} /> :
                                 <Typography className='!font-[500]'>
                                     {
-                                        globalstore.swapstate === SWAPSTATE.QUOTE ? `Get Quote` : `Swap`
+                                        Number(globalstore.toAmount) === 0 ? `Get Quote` : `Swap`
                                     }
                                 </Typography>
                         }
